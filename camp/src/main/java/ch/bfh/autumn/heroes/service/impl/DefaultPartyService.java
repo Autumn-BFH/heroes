@@ -2,6 +2,7 @@ package ch.bfh.autumn.heroes.service.impl;
 
 import ch.bfh.autumn.heroes.model.Hero;
 import ch.bfh.autumn.heroes.model.Party;
+import ch.bfh.autumn.heroes.service.HeroService;
 import ch.bfh.autumn.heroes.service.PartyService;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,17 +13,18 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DefaultPartyService implements PartyService {
 
-  private final DefaultHeroService heroService;
+  private String[] heroes = {"Natalya", "David", "Fabian", "Adrian"};
+
+  private final HeroService heroService;
 
   public Party createParty(String name) {
     Party party = new Party();
     party.setName(name);
 
-    List<Hero> heroes = new ArrayList<Hero>(4);
-    heroes.add(heroService.createHero("Fabian 1"));
-    heroes.add(heroService.createHero("Fabian 2"));
-    heroes.add(heroService.createHero("Fabian 3"));
-    heroes.add(heroService.createHero("Fabian 4"));
+    List<Hero> heroes = new ArrayList<>(4);
+    for (String heroName : this.heroes) {
+      heroes.add(heroService.createHero(heroName));
+    }
 
     party.setMembers(heroes);
 

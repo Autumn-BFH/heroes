@@ -1,11 +1,16 @@
 package ch.bfh.autumn.heroes.service.impl;
 
 import ch.bfh.autumn.heroes.model.Hero;
+import ch.bfh.autumn.heroes.repository.HeroRepository;
 import ch.bfh.autumn.heroes.service.HeroService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class DefaultHeroService implements HeroService {
+
+  private final HeroRepository heroRepository;
 
   public Hero createHero(String name) {
     Hero hero = new Hero();
@@ -16,9 +21,9 @@ public class DefaultHeroService implements HeroService {
     hero.setAtk(getRandomInRange(1, 100));
     hero.setDef(getRandomInRange(1, 100));
 
-    System.out.println(hero);
+    String heroId = this.heroRepository.save(hero).getId();
 
-    return hero;
+    return this.heroRepository.findById(heroId).get();
   }
 
   private int getRandomInRange(int min, int max) {
