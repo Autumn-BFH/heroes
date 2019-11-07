@@ -1,12 +1,15 @@
 package ch.bfh.autumn.service.impl;
 
 import ch.bfh.autumn.model.Hero;
+import ch.bfh.autumn.repository.HeroRepository;
 import ch.bfh.autumn.service.HeroService;
 import java.util.Random;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@Service
 public class DefaultHeroService implements HeroService {
+
+  @Autowired
+  private HeroRepository heroRepository;
 
   @Override
   public Hero createHero(String name) {
@@ -25,6 +28,11 @@ public class DefaultHeroService implements HeroService {
     hero.setHp(100);
     System.out.println("Hero has " + hero.getHp() + " health points");
 
-    return hero;
+    String id = heroRepository.save(hero).getId();
+
+    System.out.println("Hero " + name + " has been created");
+    System.out.println("Heroes with ATK greater than 50: " + heroRepository.countByAtkGreaterThan(50));
+
+    return heroRepository.findById(id).get();
   }
 }

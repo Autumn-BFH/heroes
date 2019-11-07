@@ -7,9 +7,7 @@ import ch.bfh.autumn.service.PartyService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
 public class DefaultPartyService implements PartyService {
 
   private String[] heroes = {"Natalya","David","Fabian,","Adrian"};
@@ -23,13 +21,15 @@ public class DefaultPartyService implements PartyService {
     Party party = new Party();
     party.setName(name);
 
-    List<Hero> members = new ArrayList<Hero>();
+    List<Hero> members = new ArrayList<>();
     for(int i = 0; i< heroes.length; i++){
       members.add(heroService.createHero(heroes[i]));
     }
 
     System.out.println("Adding heroes to party "+name);
     party.setMembers(members);
+
+    System.out.println("Party " + name + " has been created");
 
     return party;
   }
