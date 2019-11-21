@@ -4,5 +4,5 @@ import ch.bfh.autumn.model.Party;
 
 public interface PartyService {
 
-    Party createParty(String name);
+  Party createParty(String name);
 }
