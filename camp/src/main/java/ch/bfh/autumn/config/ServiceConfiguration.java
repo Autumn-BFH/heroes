@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 //import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "ch.bfh.autumn.heroes.repository")
+@EnableJpaRepositories(basePackages = "ch.bfh.autumn.repository")
 //@EnableMongoRepositories(basePackages = "ch.bfh.autumn.heroes.repository")
 public class ServiceConfiguration {
 

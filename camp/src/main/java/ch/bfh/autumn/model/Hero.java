@@ -7,8 +7,8 @@ import org.hibernate.annotations.GenericGenerator;
 /*import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;*/
 
-@Entity
 //@Document
+@Entity
 public class Hero {
 
   @Id
