@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class DefaultPartyService implements PartyService {
 
-  private String[] heroes = {"Natalya","David","Fabian,","Adrian"};
+  private String[] heroes = {"Natalya","David","Fabian","Adrian"};
 
   @Autowired
   private HeroService heroService;

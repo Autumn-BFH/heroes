@@ -31,7 +31,6 @@ public class DefaultHeroService implements HeroService {
     String id = heroRepository.save(hero).getId();
 
     System.out.println("Hero " + name + " has been created");
-    System.out.println("Heroes with ATK greater than 50: " + heroRepository.countByAtkGreaterThan(50));
 
     return heroRepository.findById(id).get();
   }

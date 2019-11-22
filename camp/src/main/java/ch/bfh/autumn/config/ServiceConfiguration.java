@@ -6,7 +6,10 @@ import ch.bfh.autumn.service.impl.DefaultHeroService;
 import ch.bfh.autumn.service.impl.DefaultPartyService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
 //import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
@@ -22,6 +25,13 @@ public class ServiceConfiguration {
   @Bean
   public PartyService partyService() {
     return new DefaultPartyService();
+  }
+
+  @Bean
+  public Jackson2RepositoryPopulatorFactoryBean getRespositoryPopulator() {
+    Jackson2RepositoryPopulatorFactoryBean factory = new Jackson2RepositoryPopulatorFactoryBean();
+    factory.setResources(new Resource[]{new ClassPathResource("camp-data.json")});
+    return factory;
   }
 
 }
