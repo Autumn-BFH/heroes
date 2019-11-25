@@ -27,16 +27,16 @@ public class DefaultHeroService implements HeroService {
     return this.heroRepository.findById(heroId).get();
   }
 
+  public Hero createHero(Hero hero) {
+    return this.heroRepository.save(hero);
+  }
+
   public List<Hero> getHeroes() {
     return this.heroRepository.findAll();
   }
 
   public Hero getHero(String id) {
     return this.heroRepository.findById(id).get();
-  }
-
-  public Hero createHero(Hero hero) {
-    return this.heroRepository.save(hero);
   }
 
   public Hero updateHero(Hero hero) {

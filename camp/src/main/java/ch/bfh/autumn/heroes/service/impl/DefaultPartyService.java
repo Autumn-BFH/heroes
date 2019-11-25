@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DefaultPartyService implements PartyService {
 
-  private String[] heroes = {"Natalya", "David", "Fabian", "Adrian"};
-
   private final HeroService heroService;
 
   public Party createParty(String name) {

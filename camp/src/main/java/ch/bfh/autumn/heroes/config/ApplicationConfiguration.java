@@ -12,8 +12,9 @@ public class ApplicationConfiguration {
   @Bean
   public Jackson2RepositoryPopulatorFactoryBean getRespositoryPopulator() {
     Jackson2RepositoryPopulatorFactoryBean factory = new Jackson2RepositoryPopulatorFactoryBean();
+    
     factory.setResources(new Resource[]{new ClassPathResource("data/heroes.json")});
-    System.out.println("okay works");
+
     return factory;
   }
 }
