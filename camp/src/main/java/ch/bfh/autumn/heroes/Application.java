@@ -7,10 +7,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-@EnableMongoRepositories
 @RequiredArgsConstructor
 public class Application implements ApplicationRunner {
 
@@ -23,7 +21,6 @@ public class Application implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
-    this.partyService.createParty("Party 1");
     System.out.println(this.heroRepository.countByAtkGreaterThan(1));
     System.out.println(this.heroRepository.findAll());
   }
