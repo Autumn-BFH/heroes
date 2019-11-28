@@ -3,7 +3,6 @@ package ch.bfh.autumn.service.impl;
 import ch.bfh.autumn.model.Hero;
 import ch.bfh.autumn.model.Party;
 import ch.bfh.autumn.repository.HeroRepository;
-import ch.bfh.autumn.service.HeroService;
 import ch.bfh.autumn.service.PartyService;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,9 +22,18 @@ public class DefaultPartyService implements PartyService {
     Party party = new Party();
     party.setName(name);
 
-    List<Hero> allHeroes = heroRepository.findAll();
-    Collections.shuffle(allHeroes);
-    List<Hero> randomHeroes = allHeroes.subList(0,4);
+    Iterable<Hero> allHeroes = heroRepository.findAll();
+    List<Hero> randomHeroes = new ArrayList<Hero>();
+    //TODO: shuffle
+    int i = 0;
+    for(Hero hero: allHeroes){
+      randomHeroes.add(hero);
+      System.out.println("Hero " + hero.getName() + " added to party to random list");
+      i++;
+      if (i > 3) {
+        break;
+      }
+    }
 
     System.out.println("Adding heroes to party "+name);
     party.setMembers(randomHeroes);

@@ -19,5 +19,12 @@
     "atk": 1000,
     "def": 1000,
     "hp": 1000
+  },
+  {
+    "_class": "ch.bfh.autumn.model.Hero",
+    "name": "Peasant",
+    "atk": 10,
+    "def": 10,
+    "hp": 10
   }
 ]

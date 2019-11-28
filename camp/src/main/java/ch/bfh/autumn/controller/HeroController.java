@@ -15,18 +15,18 @@ public class HeroController {
     private HeroRepository heroRepository;
 
     @GetMapping
-    public Iterable<Hero> list() {
+    public @ResponseBody Iterable<Hero> list() {
         return heroRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Hero getById(@PathVariable String id) {
+    public @ResponseBody Hero getById(@PathVariable String id) {
         return heroRepository.findById(id).get();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void create(Hero hero) {
+    public void create(@RequestBody Hero hero) {
         heroRepository.save(hero);
     }
 
