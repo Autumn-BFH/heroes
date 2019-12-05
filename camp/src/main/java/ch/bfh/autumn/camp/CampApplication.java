@@ -1,4 +1,4 @@
-package ch.bfh.autumn;
+package ch.bfh.autumn.camp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

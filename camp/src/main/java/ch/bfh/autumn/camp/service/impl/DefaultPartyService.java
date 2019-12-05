@@ -1,11 +1,10 @@
-package ch.bfh.autumn.service.impl;
+package ch.bfh.autumn.camp.service.impl;
 
-import ch.bfh.autumn.model.Hero;
-import ch.bfh.autumn.model.Party;
-import ch.bfh.autumn.repository.HeroRepository;
-import ch.bfh.autumn.service.PartyService;
+import ch.bfh.autumn.camp.model.Hero;
+import ch.bfh.autumn.camp.model.Party;
+import ch.bfh.autumn.camp.repository.HeroRepository;
+import ch.bfh.autumn.camp.service.PartyService;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 

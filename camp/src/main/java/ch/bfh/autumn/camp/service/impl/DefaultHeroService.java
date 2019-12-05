@@ -1,8 +1,8 @@
-package ch.bfh.autumn.service.impl;
+package ch.bfh.autumn.camp.service.impl;
 
-import ch.bfh.autumn.model.Hero;
-import ch.bfh.autumn.repository.HeroRepository;
-import ch.bfh.autumn.service.HeroService;
+import ch.bfh.autumn.camp.model.Hero;
+import ch.bfh.autumn.camp.repository.HeroRepository;
+import ch.bfh.autumn.camp.service.HeroService;
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 

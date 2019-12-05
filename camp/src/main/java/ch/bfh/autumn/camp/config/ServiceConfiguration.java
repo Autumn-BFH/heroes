@@ -1,9 +1,9 @@
-package ch.bfh.autumn.config;
+package ch.bfh.autumn.camp.config;
 
-import ch.bfh.autumn.service.HeroService;
-import ch.bfh.autumn.service.PartyService;
-import ch.bfh.autumn.service.impl.DefaultHeroService;
-import ch.bfh.autumn.service.impl.DefaultPartyService;
+import ch.bfh.autumn.camp.service.HeroService;
+import ch.bfh.autumn.camp.service.PartyService;
+import ch.bfh.autumn.camp.service.impl.DefaultHeroService;
+import ch.bfh.autumn.camp.service.impl.DefaultPartyService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -13,8 +13,8 @@ import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFacto
 //import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "ch.bfh.autumn.repository")
-//@EnableMongoRepositories(basePackages = "ch.bfh.autumn.heroes.repository")
+@EnableJpaRepositories(basePackages = "ch.bfh.autumn.camp.repository")
+//@EnableMongoRepositories(basePackages = "ch.bfh.autumn.camp.repository")
 public class ServiceConfiguration {
 
   @Bean

@@ -1,4 +1,4 @@
-package ch.bfh.autumn.model;
+package ch.bfh.autumn.camp.model;
 
 import org.springframework.hateoas.RepresentationModel;
 

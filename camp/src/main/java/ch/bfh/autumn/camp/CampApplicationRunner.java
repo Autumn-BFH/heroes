@@ -1,7 +1,7 @@
-package ch.bfh.autumn;
+package ch.bfh.autumn.camp;
 
-import ch.bfh.autumn.repository.HeroRepository;
-import ch.bfh.autumn.service.PartyService;
+import ch.bfh.autumn.camp.repository.HeroRepository;
+import ch.bfh.autumn.camp.service.PartyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

@@ -1,11 +1,10 @@
-package ch.bfh.autumn.repository;
+package ch.bfh.autumn.camp.repository;
 
-import ch.bfh.autumn.model.Hero;
+import ch.bfh.autumn.camp.model.Hero;
 //import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.stereotype.Repository;
 
 @RepositoryRestResource
 //public interface HeroRepository extends MongoRepository<Hero, String> {

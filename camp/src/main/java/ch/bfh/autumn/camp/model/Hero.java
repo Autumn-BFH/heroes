@@ -1,4 +1,4 @@
-package ch.bfh.autumn.model;
+package ch.bfh.autumn.camp.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

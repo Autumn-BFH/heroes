@@ -1,8 +1,8 @@
-package ch.bfh.autumn.controller;
+package ch.bfh.autumn.camp.controller;
 
-import ch.bfh.autumn.model.Hero;
-import ch.bfh.autumn.model.Party;
-import ch.bfh.autumn.service.PartyService;
+import ch.bfh.autumn.camp.model.Hero;
+import ch.bfh.autumn.camp.model.Party;
+import ch.bfh.autumn.camp.service.PartyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.support.RepositoryEntityLinks;
 import org.springframework.web.bind.annotation.GetMapping;

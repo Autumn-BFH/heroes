@@ -1,7 +1,7 @@
-package ch.bfh.autumn.controller;
+package ch.bfh.autumn.camp.controller;
 
-import ch.bfh.autumn.model.Hero;
-import ch.bfh.autumn.repository.HeroRepository;
+import ch.bfh.autumn.camp.model.Hero;
+import ch.bfh.autumn.camp.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
