@@ -1,10 +1,10 @@
 package ch.bfh.autumn.arena.model;
 
-import org.springframework.hateoas.ResourceSupport;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.util.List;
 
-public class Party extends ResourceSupport {
+public class Party extends RepresentationModel {
 
   private String name;
   private List<Hero> members;
