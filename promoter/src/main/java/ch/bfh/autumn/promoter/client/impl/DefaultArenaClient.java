@@ -14,11 +14,11 @@ import java.util.List;
 public class DefaultArenaClient implements ArenaClient {
 
     @Override
-    public String battle(List<Party> challangers) {
+    public String battle(List<Party> challengers) {
         ResponseEntity<String> response =  new RestTemplate().exchange(
-                "http://localhost:3333/battle",
+                "http://localhost:8081/battle",
                 HttpMethod.POST,
-                new HttpEntity<>(challangers),
+                new HttpEntity<>(challengers),
                 String.class);
         return response.getBody();
     }

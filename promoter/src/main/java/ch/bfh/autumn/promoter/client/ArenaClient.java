@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface ArenaClient {
 
-  String battle(List<Party> challangers);
+  String battle(List<Party> challengers);
 }

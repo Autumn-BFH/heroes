@@ -30,10 +30,10 @@ public class DefaultPromoterService implements PromoterService {
         Party challenger = campClient.createParty("Challenger").getContent();
         LOG.info("Todays battle is between Party '"+challengee.getName()+"' and Party '"+challenger.getName()+"'.");
 
-        List<Party> challangers = new ArrayList<>();
-        challangers.add(challengee);
-        challangers.add(challenger);
-        String winner = arenaClient.battle(challangers);
+        List<Party> challengers = new ArrayList<>();
+        challengers.add(challengee);
+        challengers.add(challenger);
+        String winner = arenaClient.battle(challengers);
         LOG.info("And the winner is: Party '"+winner+"'");
 
         return  winner;
