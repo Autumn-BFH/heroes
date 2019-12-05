@@ -1,4 +1,4 @@
-package ch.bfh.autumn.arena.model;
+package ch.bfh.autumn.promoter.model;
 
 public class Hero {
 
@@ -39,3 +39,4 @@ public class Hero {
     this.hp = hp;
   }
 }
+
