@@ -2,7 +2,7 @@
   {
     "_class": "ch.bfh.autumn.model.Hero",
     "name": "King",
-    "atk": 100,
+    "atk": 75,
     "def": 20,
     "hp": 100
   },
@@ -10,15 +10,15 @@
     "_class": "ch.bfh.autumn.model.Hero",
     "name": "Queen",
     "atk": 40,
-    "def": 100,
+    "def": 50,
     "hp": 100
   },
   {
     "_class": "ch.bfh.autumn.model.Hero",
-    "name": "God",
-    "atk": 1000,
-    "def": 1000,
-    "hp": 1000
+    "name": "Knight",
+    "atk": 85,
+    "def": 85,
+    "hp": 100
   },
   {
     "_class": "ch.bfh.autumn.model.Hero",
