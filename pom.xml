@@ -16,7 +16,9 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
+    <module>arena</module>
     <module>camp</module>
+    <module>promoter</module>
   </modules>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
