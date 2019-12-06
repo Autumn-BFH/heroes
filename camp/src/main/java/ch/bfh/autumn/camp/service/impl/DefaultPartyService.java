@@ -5,12 +5,13 @@ import ch.bfh.autumn.camp.model.Party;
 import ch.bfh.autumn.camp.repository.HeroRepository;
 import ch.bfh.autumn.camp.service.PartyService;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class DefaultPartyService implements PartyService {
-
-  private String[] heroes = {"Natalya","David","Fabian","Adrian"};
 
   @Autowired
   private HeroRepository heroRepository;
@@ -22,16 +23,16 @@ public class DefaultPartyService implements PartyService {
     party.setName(name);
 
     Iterable<Hero> allHeroes = heroRepository.findAll();
-    List<Hero> randomHeroes = new ArrayList<Hero>();
-    //TODO: shuffle
-    int i = 0;
-    for(Hero hero: allHeroes){
-      randomHeroes.add(hero);
-      System.out.println("Hero " + hero.getName() + " added to party to random list");
-      i++;
-      if (i > 3) {
-        break;
-      }
+    List<Hero> randomHeroes = new ArrayList<>();
+    List<Hero> items = new LinkedList<>();
+
+    allHeroes.forEach(items::add);
+    Collections.shuffle(items);
+    for (int i = 0; i < 4; i++) {
+      Random rand = new Random();
+      int randValue = rand.nextInt(items.size());
+      randomHeroes.add(items.get(randValue));
+      System.out.println("Hero " + items.get(randValue).getName() + " added to party to random list");
     }
 
     System.out.println("Adding heroes to party "+name);
