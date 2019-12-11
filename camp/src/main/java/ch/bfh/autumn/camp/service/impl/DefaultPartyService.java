@@ -9,16 +9,21 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class DefaultPartyService implements PartyService {
+
+  private static Logger LOG = LoggerFactory.getLogger(DefaultPartyService.class);
 
   @Autowired
   private HeroRepository heroRepository;
 
   @Override
   public Party createParty(String name) {
-    System.out.println("Creating Party with name: " + name);
+    LOG.info("Creating Party with name: " + name);
     Party party = new Party();
     party.setName(name);
 
@@ -32,13 +37,13 @@ public class DefaultPartyService implements PartyService {
       Random rand = new Random();
       int randValue = rand.nextInt(items.size());
       randomHeroes.add(items.get(randValue));
-      System.out.println("Hero " + items.get(randValue).getName() + " added to party to random list");
+      LOG.info("Hero " + items.get(randValue).getName() + " from camp added to random party");
     }
 
-    System.out.println("Adding heroes to party "+name);
+    LOG.debug("Adding heroes to party "+name);
     party.setMembers(randomHeroes);
 
-    System.out.println("Party " + name + " has been created");
+    LOG.info("Party " + name + " has been created");
 
     return party;
   }
