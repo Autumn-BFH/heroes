@@ -20,6 +20,7 @@
     <module>camp</module>
     <module>promoter</module>
     <module>registry</module>
+    <module>frontend</module>
   </modules>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
