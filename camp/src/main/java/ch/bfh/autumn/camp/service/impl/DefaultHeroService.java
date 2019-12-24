@@ -26,6 +26,11 @@ public class DefaultHeroService implements HeroService {
     hero.setAtk(atk);
     LOG.debug("Hero has " + hero.getAtk() + " attack");
 
+    // Between 25 and 100 percent
+    int crit = new Random().nextInt((100 - 25) + 1) + 25;;
+    hero.setCrit(crit);
+    LOG.debug("Hero has " + hero.getCrit() + "% critical chance");
+
     int def = new Random().nextInt(100);
     hero.setDef(def);
     LOG.debug("Hero has " + hero.getDef() + " defense");

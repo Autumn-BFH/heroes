@@ -4,6 +4,7 @@ public class Hero {
 
   private String name;
   private int atk;
+  private int crit;
   private int def;
   private double hp;
 
@@ -21,6 +22,14 @@ public class Hero {
 
   public void setAtk(int atk) {
     this.atk = atk;
+  }
+
+  public void setCrit(int crit) {
+    this.crit = crit;
+  }
+
+  public int getCrit() {
+    return crit;
   }
 
   public int getDef() {

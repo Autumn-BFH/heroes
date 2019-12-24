@@ -3,6 +3,7 @@
     "_class": "ch.bfh.autumn.camp.model.Hero",
     "name": "King",
     "atk": 75,
+    "crit": 55,
     "def": 20,
     "hp": 100
   },
@@ -10,6 +11,7 @@
     "_class": "ch.bfh.autumn.camp.model.Hero",
     "name": "Queen",
     "atk": 40,
+    "crit": 45,
     "def": 50,
     "hp": 100
   },
@@ -17,6 +19,7 @@
     "_class": "ch.bfh.autumn.camp.model.Hero",
     "name": "Knight",
     "atk": 85,
+    "crit": 65,
     "def": 85,
     "hp": 100
   },
@@ -24,6 +27,7 @@
     "_class": "ch.bfh.autumn.camp.model.Hero",
     "name": "Peasant",
     "atk": 10,
+    "crit": 10,
     "def": 10,
     "hp": 10
   }

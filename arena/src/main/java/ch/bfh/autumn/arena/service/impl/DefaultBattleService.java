@@ -95,12 +95,17 @@ public class DefaultBattleService implements BattleService {
         return defender;
     }
 
-    private void round(Hero attacker, Hero defender) {
+    public void round(Hero attacker, Hero defender) {
         double defenderHp = defender.getHp();
 
         // damage is 1/10 of ATK
         double damage = attacker.getAtk();
         if (damage < 1) damage++;
+        if((int)(Math.random() * 100) <= (attacker.getCrit()))
+        {
+            damage = damage * 2;
+            LOG.info("Critical Strike by " + attacker.getName());
+        }
         damage = damage/10.0;
         LOG.info("Attacking "+attacker.getName()+" caused "+damage+" damage.");
 
