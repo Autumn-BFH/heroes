@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/heroesWOHateoas")
+@CrossOrigin(origins = "*")
 public class HeroController {
     @Autowired
     private HeroRepository heroRepository;
