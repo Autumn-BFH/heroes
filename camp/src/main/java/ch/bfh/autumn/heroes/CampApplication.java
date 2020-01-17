@@ -10,13 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @RequiredArgsConstructor
-public class Application implements ApplicationRunner {
+public class CampApplication implements ApplicationRunner {
 
   private final PartyService partyService;
   private final HeroRepository heroRepository;
 
   public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
+    SpringApplication.run(CampApplication.class, args);
   }
 
   @Override

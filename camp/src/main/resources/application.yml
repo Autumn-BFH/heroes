@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: camp
+  data:
+    rest:
+      basePath: /spring-rest-hateoas
+
+server:
+  port: 8001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
