@@ -5,6 +5,16 @@ spring:
     rest:
       basePath: /spring-rest-hateoas
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  file:
+    name: /logs/app.log
+
 server:
   port: 8001
 

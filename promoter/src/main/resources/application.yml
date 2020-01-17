@@ -8,6 +8,24 @@ spring:
       ribbon:
         enabled: false
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  file:
+    name: /logs/app.log
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  metrics:
+    enabled: true
+
 eureka:
   client:
     serviceUrl:

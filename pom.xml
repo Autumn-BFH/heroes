@@ -54,6 +54,7 @@
     <module>arena</module>
     <module>registry</module>
     <module>frontend</module>
+    <module>admin</module>
   </modules>
 
   <repositories>

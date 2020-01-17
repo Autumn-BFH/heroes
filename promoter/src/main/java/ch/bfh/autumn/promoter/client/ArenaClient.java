@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(value = "arena")
+@FeignClient(value = "arena", fallback = ArenaFallback.class)
 public interface ArenaClient {
 
   @PostMapping("/battle")
