@@ -10,7 +10,7 @@
 - (depcrecated) Not using any `JavaConfig`
 - Use Constructor Injection with `@RequiredArgsConstructor`
    - See https://www.baeldung.com/spring-injection-lombok
-
+- do not use parent pom.xml from heroes, to remove dependency
 ## (depcrecated) Connecting to the h2 console
 1. Goto `localhost:8080/h2-console`
 2. Use default settings, but change `JDBC URL` to `jdbc:h2:mem:testdb`
