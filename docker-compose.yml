@@ -1,0 +1,73 @@
+version: "3.4"
+
+services:
+  frontend:
+    build: ./frontend
+    networks:
+      - autumn
+    ports:
+      - "8080:8080"
+    depends_on:
+      - registry
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
+  admin:
+    build: ./admin
+    networks:
+      - autumn
+    ports:
+      - "3030:3030"
+    depends_on:
+      - registry
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
+  registry:
+    build: ./registry
+    networks:
+      - autumn
+    ports:
+      - "8761:8761"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
+  promoter:
+    build: ./promoter
+    networks:
+      - autumn
+    depends_on:
+      - registry
+      - camp
+      - arena
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
+  camp:
+    build: ./camp
+    networks:
+      - autumn
+    depends_on:
+      - registry
+      - mongodb
+    links:
+      - mongodb
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
+  arena:
+    build: ./arena
+    networks:
+      - autumn
+    depends_on:
+      - registry
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
+  mongodb:
+    image: mongo:3.4
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+    command: --smallfiles
+    networks:
+      - autumn
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
+
+networks:
+  autumn:
