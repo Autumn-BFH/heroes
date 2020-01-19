@@ -1,0 +1,34 @@
+[
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "1",
+    "name": "Fabian",
+    "atk": 100,
+    "def": 100,
+    "hp": 100
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "2",
+    "name": "Natalya",
+    "atk": 90,
+    "def": 90,
+    "hp": 90
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "3",
+    "name": "David",
+    "atk": 80,
+    "def": 80,
+    "hp": 80
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "4",
+    "name": "Adrian",
+    "atk": 70,
+    "def": 70,
+    "hp": 70
+  }
+]

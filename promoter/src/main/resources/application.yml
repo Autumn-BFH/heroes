@@ -1,0 +1,32 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: promoter
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  file:
+    name: /logs/app.log
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  metrics:
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
