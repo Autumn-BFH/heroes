@@ -58,6 +58,16 @@ services:
       - registry
     environment:
       - "SPRING_PROFILES_ACTIVE=prd"
+  ui:
+    build: ./ui
+    networks:
+      - autumn
+    depends_on:
+      - registry
+      - frontend
+      - camp
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
   mongodb:
     image: mongo:3.4
     container_name: "mongodb"
