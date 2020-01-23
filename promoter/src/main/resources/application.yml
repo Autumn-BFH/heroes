@@ -25,7 +25,12 @@ feign:
 hystrix:
   metrics:
     enabled: true
-
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
 eureka:
   client:
     serviceUrl:

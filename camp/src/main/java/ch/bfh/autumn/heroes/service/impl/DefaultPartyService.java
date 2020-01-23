@@ -29,4 +29,9 @@ public class DefaultPartyService implements PartyService {
 
     return party;
   }
+
+  @Override
+  public Party createParty(String name, List<Hero> heroList) {
+    return new Party(name, heroList);
+  }
 }

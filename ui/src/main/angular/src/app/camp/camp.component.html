@@ -1,0 +1,42 @@
+<h1>Camp</h1>
+<div class="parties-container">
+  <ng-container *ngIf="parties$ | async as parties;">
+    <mat-card>
+      <h2>Herausforderer</h2>
+      <button mat-raised-button
+              (click)="selectHeroes('challenger')">Helden auswählen
+      </button>
+      <mat-list>
+        <mat-list-item *ngFor="let hero of parties.challenger.members">
+          <h4 mat-line>{{hero.name}}</h4>
+          <p mat-line>Atk: {{ hero.atk }}, Def: {{ hero.def }}, Hp: {{ hero.hp }} </p>
+
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+    <mat-card>
+      <h2>Gegner</h2>
+      <button mat-raised-button
+              (click)="selectHeroes('challengee')">Helden auswählen
+      </button>
+      <mat-list>
+        <mat-list-item *ngFor="let hero of parties.challengee.members">
+          <h4 mat-line>{{hero.name}}</h4>
+          <p mat-line>Atk: {{ hero.atk }}, Def: {{ hero.def }}, Hp: {{ hero.hp }} </p>
+
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </ng-container>
+</div>
+<div class="fight-container">
+  <button mat-raised-button
+          [disabled]="fightButtonDisabled"
+          (click)="fight()"
+          color="primary">Kampf starten
+  </button>
+
+  <p *ngIf="fightResult$ | async as result">{{ result }}</p>
+</div>

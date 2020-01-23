@@ -1,34 +1,138 @@
 [
   {
     "_class": "ch.bfh.autumn.heroes.model.Hero",
-    "id": "1",
-    "name": "Fabian",
-    "atk": 100,
-    "def": 100,
-    "hp": 100
+    "id": "2629cd2f-864e-4e14-8f94-9a417a3ae9cb",
+    "name": "Meat Bat",
+    "hp": 61,
+    "def": 79,
+    "atk": 40
   },
   {
     "_class": "ch.bfh.autumn.heroes.model.Hero",
-    "id": "2",
-    "name": "Natalya",
-    "atk": 90,
-    "def": 90,
-    "hp": 90
+    "id": "638d96f9-153b-4556-a808-ab84193a5071",
+    "name": "The Skeleton Master",
+    "hp": 83,
+    "def": 92,
+    "atk": 60
   },
   {
     "_class": "ch.bfh.autumn.heroes.model.Hero",
-    "id": "3",
-    "name": "David",
-    "atk": 80,
-    "def": 80,
-    "hp": 80
+    "id": "ba8f1f38-4a4f-4e06-9cac-1ee54eb02e2f",
+    "name": "The Temporal Lord",
+    "hp": 78,
+    "def": 82,
+    "atk": 73
   },
   {
     "_class": "ch.bfh.autumn.heroes.model.Hero",
-    "id": "4",
-    "name": "Adrian",
-    "atk": 70,
-    "def": 70,
-    "hp": 70
+    "id": "6ffb5972-e528-4ac7-8771-8b53e3d7ff23",
+    "name": "Hydro Fly",
+    "hp": 91,
+    "def": 99,
+    "atk": 89
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "42988e4d-3e70-49b7-b0bf-37c951b3ed2b",
+    "name": "Commander Tomorrow",
+    "hp": 74,
+    "def": 89,
+    "atk": 90
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "7ce960c3-2c9f-4c94-800c-bdb8a380394d",
+    "name": "Wonder Cat",
+    "hp": 84,
+    "def": 41,
+    "atk": 100
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "fc43954c-a68a-4224-8ecb-c396ccdc1f54",
+    "name": "Cheetah Man",
+    "hp": 83,
+    "def": 99,
+    "atk": 95
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "5f998d26-1303-43fd-9314-43fd9286a9af",
+    "name": "Commander Giga",
+    "hp": 85,
+    "def": 75,
+    "atk": 94
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "6cb3efee-266f-4d2c-9cff-66512389cdec",
+    "name": "The Flaming Guardian",
+    "hp": 100,
+    "def": 62,
+    "atk": 45
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "a1fdc22b-ee38-4ee3-9f97-4eb24d9c487e",
+    "name": "Mr Quasar",
+    "hp": 100,
+    "def": 46,
+    "atk": 51
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "428624e5-369b-4ca6-8924-64e332231405",
+    "name": "Shadow Fly",
+    "hp": 83,
+    "def": 72,
+    "atk": 72
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "244ef6dd-524b-47c5-9b3d-be1b51084e25",
+    "name": "The Gold Rock",
+    "hp": 71,
+    "def": 52,
+    "atk": 68
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "24c6c5bb-59f6-43b7-90e0-70a95c8e7bd8",
+    "name": "Web Fly",
+    "hp": 69,
+    "def": 68,
+    "atk": 79
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "a071860c-9288-40b7-84bf-4d023ad25da2",
+    "name": "Super Cat",
+    "hp": 76,
+    "def": 74,
+    "atk": 100
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "87fd5a99-6154-49f3-9bd9-77e1f65436b1",
+    "name": "The Raw Master",
+    "hp": 70,
+    "def": 45,
+    "atk": 35
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "3d96889b-fc37-412f-a8d3-71023baff610",
+    "name": "Uber Man",
+    "hp": 91,
+    "def": 56,
+    "atk": 77
+  },
+  {
+    "_class": "ch.bfh.autumn.heroes.model.Hero",
+    "id": "fe4c07d7-b36b-4c46-ae29-40eed1959300",
+    "name": "Giga Spider",
+    "hp": 91,
+    "def": 42,
+    "atk": 94
   }
 ]

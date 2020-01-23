@@ -58,16 +58,24 @@ services:
       - registry
     environment:
       - "SPRING_PROFILES_ACTIVE=prd"
+  ui:
+    build: ./ui
+    networks:
+      - autumn
+    depends_on:
+      - registry
+      - frontend
+      - camp
+      - arena
+      - promoter
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prd"
   mongodb:
     image: mongo:3.4
     container_name: "mongodb"
-    ports:
-      - 27017:27017
     command: --smallfiles
     networks:
       - autumn
-    environment:
-      - "SPRING_PROFILES_ACTIVE=prd"
 
 networks:
   autumn:
