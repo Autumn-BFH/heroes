@@ -22,19 +22,34 @@ public class DefaultPromoterService implements PromoterService {
 
   @Override
   public String promoteFight() {
-
     Party challengee = campClient.createParty("Challengee").getContent();
     Party challenger = campClient.createParty("Challenger").getContent();
+
+    return startFight(challenger, challengee);
+  }
+
+  @Override
+  public String promoteFight(Party challenger, Party challengee) {
+    return startFight(challenger, challengee);
+  }
+
+  private String startFight(Party challenger, Party challengee) {
     LOG.info(
         "Todays battle is between Party '" + challengee.getName() + "' and Party '" + challenger
             .getName() + "'.");
 
-    List<Party> challangers = new ArrayList<>();
-    challangers.add(challengee);
-    challangers.add(challenger);
-    String winner = arenaClient.battle(challangers);
-    LOG.info("And the winner is: Party '" + winner + "'");
+    List<Party> challengers = new ArrayList<>();
+    challengers.add(challengee);
+    challengers.add(challenger);
 
-    return winner;
+    String winner = arenaClient.battle(challengers);
+
+    if (null != winner) {
+      LOG.info("And the winner is: Party '" + winner + "'");
+
+      return "The Promoter is proud to proclaim the following result of today's battle: " + winner;
+    } else {
+      return "The arena is currently getting cleaned. Plase try to hold your battle later!";
+    }
   }
 }

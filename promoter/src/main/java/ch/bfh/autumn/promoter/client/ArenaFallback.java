@@ -9,6 +9,6 @@ public class ArenaFallback implements ArenaClient {
 
   @Override
   public String battle(List<Party> challengers) {
-    return "The arena is currently getting cleaned. Plase try to hold your battle later!";
+    return null;
   }
 }

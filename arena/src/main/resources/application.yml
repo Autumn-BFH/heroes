@@ -5,6 +5,10 @@ spring:
   application:
     name: arena
 
+logging:
+  file:
+    name: /logs/app.log
+
 management:
   endpoints:
     web:

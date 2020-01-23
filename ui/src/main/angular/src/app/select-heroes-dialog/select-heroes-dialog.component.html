@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Party bearbeiten</h1>
+<div mat-dialog-content>
+  <mat-selection-list>
+    <mat-list-option [value]="hero"
+                     [selected]="isSelected(hero)"
+                     [disabled]="isDisabled(hero)"
+                     *ngFor="let hero of data.heroes">
+      <h4 mat-line>{{hero.name}}</h4>
+      <p mat-line>Atk: {{ hero.atk }}, Def: {{ hero.def }}, Hp: {{ hero.hp }} </p>
+    </mat-list-option>
+    <mat-divider></mat-divider>
+  </mat-selection-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button
+          mat-dialog-close>Abbrechen
+  </button>
+  <button mat-button
+          (click)="save()"
+          cdkFocusInitial>Speichern
+  </button>
+</div>
