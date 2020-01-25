@@ -37,21 +37,3 @@ COPY --from=build-java /app/target/ui-*.jar /app/service.jar
 
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/service.jar"]
 #############################################################################################
-
-
-#
-#
-#FROM openjdk:8u141-jdk-slim as serverbuilder
-#WORKDIR /app
-#COPY . .
-#COPY --from=clientbuilder /app/dist /app/src/main/resources/static
-#RUN ./gradlew build
-#
-#
-#FROM openjdk:8-jre-alpine
-#ENV artifact app-0.0.1.jar
-#WORKDIR /app
-#COPY --from=serverbuilder /app/build/libs/${artifact} /app
-#EXPOSE 8080
-#ENTRYPOINT ["sh", "-c"]
-#CMD ["java -jar ${artifact}"]
