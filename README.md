@@ -66,7 +66,7 @@ Folgende Sachen wurden angepasst:
     - `@Data` anstatt von `getters` und `setters`, ...
 - Verwendung von Constructor Injection im Zusammenhang mit Lombok (Annotation `@RequiredArgsConstructor`)
 - Verwendung unterschiedlicher Profile für die Entwicklung und die Docker Umgebung
-
+- Hinzufügen eines `ui` Modules mit Angular Frontend. Wird als Spring Boot Applikation verpackt, um die Integration in die Architektur zu gewährleisten (Service Discovery, API Gateway, ...).
 # Architektur
 ## Übersicht
 ![Architecture overview](./doc/img/architecture.png)
