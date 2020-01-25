@@ -76,6 +76,8 @@ services:
     command: --smallfiles
     networks:
       - autumn
+    ports:
+      - "27017:27017"
 
 networks:
   autumn:
