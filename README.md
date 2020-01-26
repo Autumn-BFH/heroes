@@ -151,14 +151,13 @@ Beim `ui` Modul müssen zuerst die npm Abhängigkeiten mit `npm install` install
 Die oben erwähnten Schritte sind mit den Docker Builds automatisiert, daher empfehlt es sich entsprechend Docker zu verwenden.
 
 ### Java Profile
-| Profil                               | Beschreibung                                                                                    |
-|--------------------------------------|-------------------------------------------------------------------------------------------------|
-| default \(application\.yml\)         | Standard Profil für die lokale Entwicklung\.                                                    |
-| Produktion \(application\-prd\.yml\) | Dient zum Ausführen in Docker\. Erbt vom Standard Profil, setzt aber eine andere Registry URL\. |
+| Dateiname               | Profil     | Beschreibung                                                                                    |
+|-------------------------|------------|-------------------------------------------------------------------------------------------------|
+| \application\.yml\      | default    | Standard Profil für die lokale Entwicklung\.                                                    |
+| \application\-prd\.yml\ | Produktion | Dient zum Ausführen in Docker\. Erbt vom Standard Profil, setzt aber eine andere Registry URL\. |
 
 ### Docker
-Um die entsprechenden Applikationen zu bauen sowie zu betreiben, haben wir uns für Docker entschieden. Dass, da so nicht zwingend alle Tools (Maven, npm, ...) installiert sein müssen.
-In jedem Microservice befindet sich entsprechend ein `Dockerfile`.
+Um die entsprechenden Applikationen zu bauen sowie zu betreiben, haben wir uns für Docker entschieden. Damit man sich nicht selbst um alle notwendigen Tools (Maven, npm etc.) kümmern muss, wurde für jede Komponente ein entsprechendes Dockerfile geschrieben.
 
 In jedem `Dockerfile` wird beschrieben, wie die Applikation gebaut werden muss, als auch wie sie gestartet werden kann. 
 
