@@ -1,63 +1,65 @@
-# heroes
+# Heroes Projekt @BFH
 
-## Changes made to the original project
-- Use Lombok `@Data` instead of `getters` and `setters`
-- (depcrecated) Use `spring-boot-starter-data-jpa` instead of single packages
-- (depcrecated)  Use `@SpringApplication` instead of manually creating Spring Context
-- (depcrecated)  In parent module, added `spring-boot-starter-parent`
-- (depcrecated)  Versions in Submodule are gotten from parent module `spring-boot-starter-parent`
-- Use `spring-boot-devtools` and `spring-boot-starter-web` for h2 Console, see https://stackoverflow.com/questions/43952259/springboot-accessing-h2-console
-- (depcrecated) Not using any `JavaConfig`
-- Use Constructor Injection with `@RequiredArgsConstructor`
-   - See https://www.baeldung.com/spring-injection-lombok
-- do not use parent pom.xml from heroes, to remove dependency
-## (depcrecated) Connecting to the h2 console
-1. Goto `localhost:8080/h2-console`
-2. Use default settings, but change `JDBC URL` to `jdbc:h2:mem:testdb`
+## Inhaltsverzeichnis
+* [Case study "Heroes" (Vorgabe des Moduls)](#case-study--heroes---vorgabe-des-moduls-)
+  + [Guidelines](#guidelines)
+* [Änderungen / Erweiterungen](#-nderungen---erweiterungen)
+  + [Änderungen](#-nderungen)
+  + [Erweiterungen](#erweiterungen)
+* [Architektur](#architektur)
+  + [Übersicht](#-bersicht)
+  + [Module](#module)
+* [Zugänge](#zug-nge)
+  + [Admin UI](#admin-ui)
+    - [Übersicht](#-bersicht-1)
+    - [Microservice Übersicht](#microservice--bersicht)
+    - [Hystrix Integration](#hystrix-integration)
+  + [Service Discovery Dashboard](#service-discovery-dashboard)
+  + [UI](#ui)
+* [Installations- und Betriebsanleitung.](#installations--und-betriebsanleitung)
+  + [Notwendige Tools](#notwendige-tools)
+  + [Starten der Applikation](#starten-der-applikation)
+    - [Mit Docker](#mit-docker)
+    - [Ausführen der Backend Services](#ausf-hren-der-backend-services)
+  + [Mockdaten](#mockdaten)
+  + [Bauen der Applikation](#bauen-der-applikation)
+    - [Mit Docker](#mit-docker-1)
+    - [Mit maven und npm](#mit-maven-und-npm)
+  + [Java Profile](#java-profile)
+  + [Docker](#docker)
+    - [Multi-Stage Builds](#multi-stage-builds)
 
-See also: 
-- https://www.baeldung.com/spring-boot-h2-database
+## Case study "Heroes" (Vorgabe des Moduls)
+A simple "Arena" fight game
+* 2 parties of heroes will fight against each other in the arena
+* A party consists of 4 heroes
+* The party with the last hero standing will be the winner
+* Heroes have simple attributes like
+  * Attack
+  * Defend
+  * Health
 
-## Access HATEOAS REST APIs
-REST APIs are automatically created by `@RepositoryRestResource` with the `spring-boot-starter-data-rest` dependency which under the hood uses HATEOAS.
-The APIs are published under `localhost:8080/spring-rest-hateoas/<entity>` where `<entity>` corresponds to either `heroes` or `parties`.
+### Guidelines
+* First just follow and imitate the case study
+* Later try to extend the case study with your own ideas
+  * Additional entities like weapons
+  * Improved fighting algorithm with more attributes
+  * Introduce hero levels that act a attribute modifiers
+  * etc.
+* If you feel courageous, you can also try to implement whole different case study
+of your choice
 
-See also:
-- https://www.baeldung.com/spring-rest-hal
-- https://www.baeldung.com/spring-data-rest-intro
-- https://spring.io/guides/gs/accessing-data-rest/
-- https://spring.io/guides/tutorials/rest/
+## Änderungen / Erweiterungen
+Da wir uns beim Handout mit dem Thema Spring Cloud auseinandergesetzt haben, haben wir uns entschieden den neuen Spring Cloud Stack anstelle des Spring Cloud Netflix Stack zu verwenden. Dadurch könnten wir viel Neues lernen und auch gerade auf dem neusten Stand bleiben.
 
-### Access HAL Browser
-When accessing `localhost:8080/spring-rest-hateoas/` you'll automatically get redirected to the HAL Explorer. 
-
-## Access Spring Boot MVC manual REST APIs
-Go to `localhost:8080/api/<entity>`
-
-## Running with mocked MongoDB
-Comment out the line `<scope>test</scope>` of the dependency `de.flapdoodle.embed.mongo`.
-
-See also: 
-- https://www.baeldung.com/spring-boot-embedded-mongodb
-
-## Creating mock data
-Edit the file `resources/data/heroes.json` to add new heroes at startup.
-
-See also: 
-- https://www.baeldung.com/spring-data-jpa-repository-populators 
-
-# Änderung der Aufgabenstellung
-In gewissen Bereichen haben wir die Aufgabenstellung leicht angepasst. Dies, dass wir noch zusätzliche Sachen lernen und um die Architektur besser aufziehen können.
-Folgende Sachen wurden angepasst:
-
-**Änderungen**
-- Entfernen des `heroes` (parent) POM: Wir haben das parent POM entfernt, dass die Microservice ohne Abhänigkeit zum parent POM gebaut werden können. Microservices sollten nach uns auch ohne das Parent POM lauffähig sein und daher haben wir uns für diesen Schritt entschieden. Die einzigen Vorteile, welche wir mit dem Parent POM gesehen haben, ist die zentrale Versionsverwaltung der Spring Boot Version, die globalen Abhängigkeiten sowie das bauen aller Module gleichzeitig. Jedoch sollte es unserer Meinung nach in einer Microservice Architektur erlaubt sein, verschiedene Versionen von bspw. Spring Cloud zu verwenden. Unteranderem aufgrund dessen, haben wir das Parent POM gelöscht.  
+### Änderungen
+- Entfernen des `heroes` (parent) POM: Wir haben das parent POM entfernt, so dass die Microservice ohne Abhänigkeit zum parent POM gebaut werden können. Microservices sollten nach uns auch ohne das Parent POM lauffähig sein und daher haben wir uns für diesen Schritt entschieden. Die einzigen Vorteile, welche wir mit dem Parent POM gesehen haben, ist die zentrale Versionsverwaltung der Spring Boot Version, die globalen Abhängigkeiten sowie das bauen aller Module gleichzeitig. Jedoch sollte es unserer Meinung nach in einer Microservice Architektur erlaubt sein, verschiedene Versionen von bspw. Spring Cloud zu verwenden. Unter anderem aufgrund dessen, haben wir das Parent POM gelöscht.  
 - Verwenden des neuen Spring Cloud Stacks: Wo möglich haben wir die neuen Komponenten des Spring Cloud Stacks verwendet und auf solche, welche im Maintenance-Mode sindnd zu verzichten.
     - Verwendung von `Spring Cloud Gateway` anstatt von `Netflix Zuul API Gateway`
     - Verwendung von `Spring Cloud LoadBalancer` anstatt von `Netflix Ribbon`
-    - Leider konnten wir `Netflix Hystrix` und das `Netflix Hystrix Dashboard` nicht so leicht ersetzen, da `Feign` standardmässig `Hystrix` verwendet. Beim `Ribbon` konnten wir dies konfigurativ ausschalten, bei `Hystrix` leider nicht. Dazu kommt, dass es in der neuen Spring Cloud Welt keinen Ersatz für das `Hystrix Dashboard` gibt, so dass man selbst mit `Micrometer` und `Prometheus` sowie `Grafana` ein Monitoring aufbauen muss. Dies würde jedoch den Rahmen dieses Projektes sprengen. 
+    - Leider konnten wir `Netflix Hystrix` und das `Netflix Hystrix Dashboard` nicht so leicht ersetzen, da `Feign` standardmässig `Hystrix` verwendet. Beim `Ribbon` konnten wir dies konfigurativ ausschalten, bei `Hystrix` leider nicht. Dazu kommt, dass es in der neuen Spring Cloud Welt keinen Ersatz für das `Hystrix Dashboard` gibt, so dass man selbst mit `Micrometer` und `Prometheus` sowie `Grafana` ein Monitoring aufbauen muss. Da wir bereits andere Erweiterungen implementiert haben, haben wir dies ausgelassen. 
    
-**Zusätzliches**
+### Erweiterungen
 - Verwendung von `Spring Actuator` für das bereitstellen von Applikationsinfos (Status, etc.)
 - Implementierung von `Spring Boot Admin` als zentrales Management-Dashboard
     - Einbindung des `Hystrix Dashboards` von `promoter` in `Spring Boot Admin`
@@ -66,11 +68,14 @@ Folgende Sachen wurden angepasst:
     - `@Data` anstatt von `getters` und `setters`, ...
 - Verwendung von Constructor Injection im Zusammenhang mit Lombok (Annotation `@RequiredArgsConstructor`)
 - Verwendung unterschiedlicher Profile für die Entwicklung und die Docker Umgebung
-- Hinzufügen eines `ui` Modules mit Angular Frontend. Wird als Spring Boot Applikation verpackt, um die Integration in die Architektur zu gewährleisten (Service Discovery, API Gateway, ...).
-# Architektur
-## Übersicht
+- Hinzufügen eines `ui` Modules mit Angular Frontend. Wird jedoch als Spring Boot Applikation verpackt, um die Integration in die Architektur zu gewährleisten (Service Discovery, API Gateway, ...).
+
+## Architektur
+
+### Übersicht
 ![Architecture overview](./doc/img/architecture.png)
-## Module
+
+### Module
 Folgende Module sind vorhanden:
 
 | Modul      | Beschreibung |
@@ -83,7 +88,7 @@ Folgende Module sind vorhanden:
 | `registry` | `Spring Cloud Eureka Server` dient als zentrale Service Discovery. Alle Applikatonen melden sich hier an und können von anderen Applikationen ermittelt werden. |
 | `ui`       | Angular Frontend Applikation, bei welcher neue Parties erstellt werden können und anschliessend zu einem Kampf geschickt werden können und der Gewinner ermittelt wird. |
 
-# Zugänge
+## Zugänge
 | Zugang                                  | Über API Gateway         | Direkt \(über Docker nicht alles offen\) |
 |-----------------------------------------|--------------------------|------------------------------------------|
 | Service Discovery \`registry` Dashboard | \-                       | localhost:8761                           |
@@ -94,44 +99,58 @@ Folgende Module sind vorhanden:
 | \`frontend` Microservice                | localhost:8080/          | localhost:8080                           |
 | \`promoter` Microservice                | localhost:8080/promoter/ | localhost:8002                           |
 
-## Admin UI
-### Übersicht
+### Admin UI
+
+#### Übersicht
 ![Admin UI overview](./doc/img/admin-ui-overview.png)
-### Microservice Übersicht
+
+#### Microservice Übersicht
 ![Admin UI microservice overview](./doc/img/admin-ui-ms-overview.png)
-### Hystrix Integration
+
+#### Hystrix Integration
 ![Admin UI microservice hystrix](./doc/img/admin-ui-ms-hystrix.png)
-## Service Discovery Dashboard
+
+### Service Discovery Dashboard
 ![Eureka Service Discovery Dashboard](./doc/img/eureka.png)
-## UI
+
+### UI
 ![UI](./doc/img/ui.png)
 
-# Getting started
-## Notwendige Tools
+## Installations- und Betriebsanleitung.
+
+### Notwendige Tools
+
 - Java
 - Maven
 - Docker
 - Docker Compose
 - npm (für Angular Frontend)
-## Starten der Applikation
-### Mit Docker
+
+### Starten der Applikation
+
+#### Mit Docker
 Falls die Images noch nicht gebuilded wurden, müssen diese zuersten mit `docker-compose build` erstellt werden.
 
 Danach können die Microservices mit `docker compose up` gestartet werden. 
 Nach einiger Zeit sind alle Microservices gestartet und an der Service Discovery angemeldet. Anschliessend sind diese über den API Gateway verfügbar.
-### Ausführen der Backend Services
+
+#### Ausführen der Backend Services
 Da sich die entsprechenden Microservices an der Service Registry anmelden, wird empfohlen zuerst das Modul `registry` zu starten. 
 
 Die Microservices können auch einzelnen ausgeführt werden. Dazu navigiert man in das entsprechende Verzeichnis und führt `mvn spring-boot:run` aus. Bei dem `ui` Modul muss zusätzlich zuerst das Angular Frontend gebaut werden. Weitere Informationen sind unter dem entsprechenden Abschnitt vorhanden.
 Falls der `frontend` API Gateway gestartet wurde, sind die Microservices auch über `localhost:8080/{name}/` aufrufbar. 
 
-Für die `camp` Applikation muss lokal eine MongoDB gestartet werden. Dies kann erreicht werden, in dem schon lokal eine MongoDB Datenbank installiert und gestartet wurde oder mit `docker-compose run mongodb`. 
-## Mockdaten
+Für die `camp` Applikation muss lokal eine MongoDB gestartet werden. Dies kann erreicht werden, in dem schon lokal eine MongoDB Datenbank installiert und gestartet wurde oder mit `docker-compose run mongodb`.
+
+### Mockdaten
 Mockdaten für die Heroes können unter `src/main/resources/data/heroes.json` bearbeitet werden.
-## Bauen der Applikation
-### Mit Docker
+
+### Bauen der Applikation
+
+#### Mit Docker
 Die Docker Images können mit dem Befehl `docker-compose build` ausgeführt werden. Dazu werden Docker Multi-Stage Builds verwendet, um die Java sowie Angular Applikationen zu bauen.
-### Mit maven und npm
+
+#### Mit maven und npm
 Alle Applikationen bis auf das `ui` Modul können wie folgt gebaut werden:
 ``mvn clean install``
 
@@ -139,13 +158,13 @@ Beim `ui` Modul müssen zuerst die npm Abhängigkeiten mit `npm install` install
 
 Die oben erwähnten Schritte sind mit den Docker Builds automatisiert, daher empfehlt es sich entsprechend Docker zu verwenden.
 
-## Java Profile
+### Java Profile
 | Profil                               | Beschreibung                                                                                    |
 |--------------------------------------|-------------------------------------------------------------------------------------------------|
 | default \(application\.yml\)         | Standard Profil für die lokale Entwicklung\.                                                    |
 | Produktion \(application\-prd\.yml\) | Dient zum Ausführen in Docker\. Erbt vom Standard Profil, setzt aber eine andere Registry URL\. |
 
-## Docker
+### Docker
 Um die entsprechenden Applikationen zu bauen sowie zu betreiben, haben wir uns für Docker entschieden. Dass, da so nicht zwingend alle Tools (Maven, npm, ...) installiert sein müssen.
 In jedem Microservice befindet sich entsprechend ein `Dockerfile`.
 
@@ -155,7 +174,7 @@ Um das Bauen und Starten der Microservice Architektur zu vereinfachen, haben wir
 
 Zusätzlich zu allen Microservices welche gestartet werden, wird für die Arena noch eine MongoDB gestartet, in welcher sie die Heroes speichert.
 
-### Multi-Stage Builds
+#### Multi-Stage Builds
 Folgende Stages existierteren beim Docker Build:
 
 **dependencies**
