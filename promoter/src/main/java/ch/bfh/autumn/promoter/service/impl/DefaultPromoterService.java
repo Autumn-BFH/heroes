@@ -35,7 +35,7 @@ public class DefaultPromoterService implements PromoterService {
 
   private String startFight(Party challenger, Party challengee) {
     LOG.info(
-        "Todays battle is between Party '" + challengee.getName() + "' and Party '" + challenger
+        "Der heutige Kampf ist zwischen der Gruppe '" + challengee.getName() + "' und der Gruppe '" + challenger
             .getName() + "'.");
 
     List<Party> challengers = new ArrayList<>();
@@ -45,11 +45,11 @@ public class DefaultPromoterService implements PromoterService {
     String winner = arenaClient.battle(challengers);
 
     if (null != winner) {
-      LOG.info("And the winner is: Party '" + winner + "'");
+      LOG.info("Und der Gewinner ist: Grupe '" + winner + "'");
 
-      return "The Promoter is proud to proclaim the following result of today's battle: " + winner;
+      return "Der Promoter verkündet mit Stolz den Gewinner des heutigen Kampfes: " + winner;
     } else {
-      return "The arena is currently getting cleaned. Plase try to hold your battle later!";
+      return "Die Arena wird derzeit gereinigt. Bitte versuche es später noch einmal!";
     }
   }
 }

@@ -18,13 +18,13 @@ public class ArenaController {
   public String battle(@RequestBody List<Party> challengers) {
 
     if (challengers.size() != 2) {
-      throw new RuntimeException("Only 2 challengers at the same time are allowed in the arena.");
+      throw new RuntimeException("Es sind nur 2 Kontrahenten zur gleichen Zeit in der Arena erlaubt.");
     }
 
     Party challengee = challengers.get(0);
     Party challenger = challengers.get(1);
     String winner = battleService.battle(challengee, challenger);
-    return "The winner of the battle between '" + challengee.getName() + "' and '" + challenger
-        .getName() + "' was '" + winner + "'!";
+    return "Der Gewinner zwischen '" + challengee.getName() + "' und '" + challenger
+        .getName() + "' war '" + winner + "'!";
   }
 }
