@@ -20,6 +20,8 @@
   + [Bauen der Applikation](#bauen-der-applikation)
   + [Java Profile](#java-profile)
   + [Docker](#docker)
+* [Schwierigkeiten](#schwierigkeiten)
+
 
 ## Case study "Heroes" (Vorgabe des Moduls)
 A simple "Arena" fight game
@@ -183,3 +185,9 @@ Der `.jar` Datei des Microservice / Spring Boot Applikation wird gebaut. Wird mi
 **default**
 
 Die `.jar` Datei des Microservice / Spring Boot Applikation wird gestartet. Das Base Image von Docker dafür ist ein OpenJDK 11.
+
+### Schwierigkeiten
+
+Mit Docker werden viele Schritte bei der Ausführung der Applikation automatisiert und das Leben des Users erleichtert. Aber natürlich muss man berücksichtigen, dass die Installation nur für bestimmten Windows Release erlaubt ist, und zwar Windows 10 64-bit Pro, Enterprise oder Education (Build 15063 or later).
+ 
+Wenn man einen neuen Submodul für die Application erstellen musste, wurden die Schwierigkeiten bei der Auswahl von Dependecies in Spring Initializer aufgetaucht und musste dann in pom.xml später angepasst werden. 
