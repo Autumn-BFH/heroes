@@ -119,6 +119,7 @@ Folgende Module sind vorhanden:
 - Docker
 - Docker Compose
 - npm (für Angular Frontend)
+- MongoDB (falls Anwendung ohne Docker)
 
 ### Starten der Applikation
 
@@ -176,7 +177,7 @@ Die Maven Abhängigkeiten werden installiert und gecached. Wird mithilfe eines M
 
 **build-angular**
 
-Nur beim `ui` Modul. Die statischen Ressourcen (HTML, css, js) von Angular Frontend wird generiert. Als Basis dazu dient ein node Image.
+Nur beim `ui` Modul. Die statischen Ressourcen (HTML, css, js) von Angular Frontend werden generiert. Als Basis dazu dient ein node Image.
 
 **build/build-java**
 
