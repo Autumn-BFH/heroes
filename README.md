@@ -189,5 +189,5 @@ Die `.jar` Datei des Microservice / Spring Boot Applikation wird gestartet. Das 
 
 ### Schwierigkeiten
 
-- Mit Docker wird das Starten der kompletten Umgebung erleichtert/automatisiert. Leider funktioniert 'Docker for Windows' nicht für alle Windows Releases, da man hierbei Windows 10 64-bit Pro/Enterprise/Education (Build 15063 or later) benötigt.
-- Wenn man einen neuen Submodul für die Application erstellen musste, wurden die Schwierigkeiten bei der Auswahl von Dependecies in Spring Initializer aufgetaucht und musste dann in pom.xml später angepasst werden. 
+Mit Docker wird das Starten der kompletten Umgebung erleichtert/automatisiert. Leider funktioniert 'Docker for Windows' nicht für alle Windows Releases, da man hierbei Windows 10 64-bit Pro/Enterprise/Education (Build 15063 or later) benötigt.
+
